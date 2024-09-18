@@ -27,7 +27,7 @@ const userSchema = new Schema(
 
     verify: {
       type: Boolean,
-      default: false,
+      default: true, // false change for testing project for CV
     },
     verificationToken: {
       type: String,
