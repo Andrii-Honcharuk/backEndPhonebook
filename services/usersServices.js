@@ -6,7 +6,7 @@ import usersRepository from "../repositories/usersRepository.js";
 import HttpError from "../helpers/HttpError.js";
 import gravatar from "gravatar";
 import { nanoid } from "nanoid";
-import sendMail from "../helpers/sendMail.js";
+// import sendMail from "../helpers/sendMail.js";
 
 export const registerUser = async (email, password) => {
   const existingUser = await usersRepository.findUserByEmail(email);
@@ -32,22 +32,22 @@ export const registerUser = async (email, password) => {
   });
 
   // don't use for CV project
-  
-//   await sendMail({
-//     to: email,
-//     from: "goncharukam@gmail.com",
-//     subject: "Welcome to register",
-//     html: `Confirm email. Please click <a href="http://localhost:3000/api/users/verify/${user.verificationToken}">link</a>`,
-//     text: `Confirm email. Please click http://localhost:3000/api/users/verify/${user.verificationToken}`,
-//   });
 
-//   return {
-//     email: user.email,
-//     subscription: user.subscription,
-//     avatarURL: user.avatarURL,
-//     verificationToken: user.verificationToken,
-//   };
-// };
+  //   await sendMail({
+  //     to: email,
+  //     from: "goncharukam@gmail.com",
+  //     subject: "Welcome to register",
+  //     html: `Confirm email. Please click <a href="http://localhost:3000/api/users/verify/${user.verificationToken}">link</a>`,
+  //     text: `Confirm email. Please click http://localhost:3000/api/users/verify/${user.verificationToken}`,
+  //   });
+
+  //   return {
+  //     email: user.email,
+  //     subscription: user.subscription,
+  //     avatarURL: user.avatarURL,
+  //     verificationToken: user.verificationToken,
+  //   };
+};
 
 export const loginUser = async (email, password) => {
   const user = await usersRepository.findUserByEmail(email);
