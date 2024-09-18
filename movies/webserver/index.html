@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Fetch Cors</h1>
+    <div id="output"></div>
+    <script>
+      fetch("http://localhost:8080/movies?api-key=12345")
+        .then((res) => res.text())
+        .then((data) => {
+          console.log(data);
+          const newParagraph = document.createElement("p");
+          newParagraph.textContent = data;
+
+          document.body.appendChild(newParagraph);
+        })
+        .catch((e) => console.error(e));
+    </script>
+    <!-- <script type="module" src="./index.js"></script> -->
+  </body>
+</html>

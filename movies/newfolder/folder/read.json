@@ -1,0 +1,24 @@
+[
+  { "id": "1", "title": "title1", "text": "Read file Text 1 FOR READING]" },
+  { "id": "2", "title": "title2", "text": "2 Read file text2 FOR READING]" },
+  {
+    "title": "title3",
+    "text": "3 Read file text3 FOR READING]",
+    "id": "8c295008-f608-4645-9347-3b5d0d917bd2"
+  },
+  {
+    "title": "title4",
+    "text": "4 Read file text3 FOR READING]",
+    "id": "3e0b6f01-e791-44db-8b2f-0f9f2f935109"
+  },
+  {
+    "title": "title-5",
+    "text": "5-th Read file text3 FOR READING]",
+    "id": "0221cc52-ff46-4bcb-b183-aea0b1e4006d"
+  },
+  {
+    "title": "Title-6",
+    "text": "6-th Text Read info",
+    "id": "740312b5-7761-4e18-99c6-7b32d3cb3170"
+  }
+]
