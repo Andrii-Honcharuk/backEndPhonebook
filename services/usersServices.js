@@ -8,7 +8,7 @@ import gravatar from "gravatar";
 import { nanoid } from "nanoid";
 // import sendMail from "../helpers/sendMail.js";
 
-export const registerUser = async (email, password) => {
+export const registerUser = async (name, email, password) => {
   const existingUser = await usersRepository.findUserByEmail(email);
   const verificationToken = nanoid();
 
@@ -25,6 +25,7 @@ export const registerUser = async (email, password) => {
   );
 
   const user = await usersRepository.createUser({
+    name,
     email,
     password: hashedPassword,
     avatarURL,
