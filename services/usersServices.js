@@ -33,6 +33,11 @@ export const registerUser = async (name, email, password) => {
     verificationToken,
   });
 
+  const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
+    expiresIn: "7d",
+  });
+
+  await usersRepository.updateUserToken(user._id, token);
   // don't use for CV project
 
   //   await sendMail({
@@ -44,11 +49,14 @@ export const registerUser = async (name, email, password) => {
   //   });
 
   return {
-    name: user.name,
-    email: user.email,
-    subscription: user.subscription,
-    avatarURL: user.avatarURL,
-    verificationToken: user.verificationToken,
+    token,
+    user: {
+      name: user.name,
+      email: user.email,
+      subscription: user.subscription,
+      avatarURL: user.avatarURL,
+      verificationToken: user.verificationToken,
+    },
   };
 };
 
