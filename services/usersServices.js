@@ -33,9 +33,13 @@ export const registerUser = async (name, email, password) => {
     verificationToken,
   });
 
-  const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
-    expiresIn: "7d",
-  });
+  const token = jwt.sign(
+    { id: user._id, name: user.name },
+    process.env.SECRET_KEY,
+    {
+      expiresIn: "7d",
+    }
+  );
 
   await usersRepository.updateUserToken(user._id, token);
   // don't use for CV project
@@ -71,9 +75,13 @@ export const loginUser = async (email, password) => {
 
   if (!user.verify) throw HttpError(401, "Please verify your email");
 
-  const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
-    expiresIn: "7d",
-  });
+  const token = jwt.sign(
+    { id: user._id, name: user.name },
+    process.env.SECRET_KEY,
+    {
+      expiresIn: "7d",
+    }
+  );
 
   await usersRepository.updateUserToken(user._id, token);
 

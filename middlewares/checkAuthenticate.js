@@ -19,6 +19,7 @@ export async function checkAuthenticate(req, res, next) {
 
     req.user = {
       id: logUser._id,
+      name: logUser.name,
       email: logUser.email,
       subscription: logUser.subscription,
     };

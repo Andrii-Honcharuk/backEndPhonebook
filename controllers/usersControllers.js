@@ -34,8 +34,8 @@ export const logoutUserController = errorWrapper(async (req, res, next) => {
 });
 
 export const currentUserController = errorWrapper(async (req, res) => {
-  const { email, subscription } = req.user;
-  res.status(200).json({ email, subscription });
+  const { name, email, subscription } = req.user;
+  res.status(200).json({ name, email, subscription });
 });
 
 export const uploadAvatarUserController = errorWrapper(
