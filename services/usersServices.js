@@ -10,6 +10,7 @@ import { nanoid } from "nanoid";
 
 export const registerUser = async (name, email, password) => {
   const existingUser = await usersRepository.findUserByEmail(email);
+
   const verificationToken = nanoid();
 
   if (existingUser) {
@@ -42,12 +43,13 @@ export const registerUser = async (name, email, password) => {
   //     text: `Confirm email. Please click http://localhost:3000/api/users/verify/${user.verificationToken}`,
   //   });
 
-  //   return {
-  //     email: user.email,
-  //     subscription: user.subscription,
-  //     avatarURL: user.avatarURL,
-  //     verificationToken: user.verificationToken,
-  //   };
+  return {
+    name: user.name,
+    email: user.email,
+    subscription: user.subscription,
+    avatarURL: user.avatarURL,
+    verificationToken: user.verificationToken,
+  };
 };
 
 export const loginUser = async (email, password) => {
