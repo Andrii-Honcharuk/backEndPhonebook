@@ -21,6 +21,7 @@ export async function checkAuthenticate(req, res, next) {
       id: logUser._id,
       name: logUser.name,
       email: logUser.email,
+      avatar: logUser.avatarURL,
       subscription: logUser.subscription,
     };
     next();

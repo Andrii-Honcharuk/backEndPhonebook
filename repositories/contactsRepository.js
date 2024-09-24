@@ -3,7 +3,10 @@ import Contact from "../db/models/contact.js";
 const listContacts = (userId) => Contact.find({ owner: userId });
 
 const getContactById = (id, userId) =>
-  Contact.findOne({ _id: id, owner: userId });
+  Contact.findOne({ _id: id, owner: userId }).populate(
+    "owner",
+    "-password -token"
+  );
 
 const removeContact = (id, userId) =>
   Contact.findOneAndDelete({ _id: id, owner: userId });
