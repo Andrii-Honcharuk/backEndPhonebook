@@ -3,6 +3,7 @@ import {
   createContactController,
   deleteContactController,
   getAllContactsController,
+  getAllDbContactsController,
   getOneContactByIdController,
   updateContactController,
   updateStatusContactByIdController,
@@ -18,6 +19,8 @@ import { checkAuthenticate } from "../middlewares/checkAuthenticate.js";
 const contactsRouter = express.Router();
 
 contactsRouter.use(checkAuthenticate);
+
+contactsRouter.get("/admin", getAllDbContactsController);
 
 contactsRouter.get("/", getAllContactsController);
 

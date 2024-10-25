@@ -5,11 +5,19 @@ import { isValidObjectId } from "mongoose";
 import {
   addContact,
   getAllContacts,
+  getAllDbContacts,
   getOneContactById,
   removeContactById,
   updateContactById,
   updateFavoriteStatusContact,
 } from "../services/contactsServices.js";
+
+export const getAllDbContactsController = errorWrapper(
+  async (req, res, next) => {
+    const contacts = await getAllContacts();
+    res.status(200).json(contacts);
+  }
+);
 
 export const getAllContactsController = errorWrapper(async (req, res, next) => {
   const userId = req.user.id;

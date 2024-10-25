@@ -1,6 +1,17 @@
 import Contact from "../db/models/contact.js";
 
-const listContacts = (userId) => Contact.find({ owner: userId });
+const listAllDbContacts = () => Contact.find();
+
+const listContacts = (userId = null) => {
+  if (userId) {
+    // Якщо переданий userId, повертаємо контакти конкретного користувача
+    return Contact.find({ userId });
+  } else {
+    // Якщо userId не переданий, повертаємо всі контакти
+    return Contact.find();
+  }
+};
+// Contact.find({ owner: userId });
 
 const getContactById = (id, userId) =>
   Contact.findOne({ _id: id, owner: userId }).populate(
@@ -31,4 +42,5 @@ export default {
   removeContact,
   updateContactById,
   updateFavoriteContactById,
+  listAllDbContacts,
 };

@@ -1,6 +1,9 @@
 import HttpError from "../helpers/HttpError.js";
 import contactsRepository from "../repositories/contactsRepository.js";
 
+export const getAllDbContacts = async () =>
+  await contactsRepository.listAllDbContacts;
+
 export const getAllContacts = async (userId) =>
   await contactsRepository.listContacts(userId);
 
