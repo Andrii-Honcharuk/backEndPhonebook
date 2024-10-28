@@ -5,7 +5,7 @@ const listAllDbContacts = () => Contact.find();
 const listContacts = (userId = null) => {
   if (userId) {
     // Якщо переданий userId, повертаємо контакти конкретного користувача
-    return Contact.find({ userId });
+    return Contact.find({ owner: userId });
   } else {
     // Якщо userId не переданий, повертаємо всі контакти
     return Contact.find();
